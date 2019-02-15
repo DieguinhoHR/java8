@@ -1,6 +1,8 @@
 package br.com.java8;
 
 import br.com.java8.lambda.Usuario;
+import br.com.java8.lambda.Validator;
+import lombok.var;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -22,6 +24,10 @@ public class Java8Application {
         // Consumer<Usuario> mostrador = u -> {System.out.println(u.getNome());};
         // Consumer<Usuario> mostrador = u -> System.out.println(u.getNome());
         usuarios.forEach(u -> System.out.println(u.getNome()));
+
+        // interface funcional
+        Validator<String> validatorCEP = valor -> valor.matches("[0-9]{5}-[0-9]{3}");
+        validatorCEP.validar("14101-300");
     }
 
     public static void main(String[] args) {
